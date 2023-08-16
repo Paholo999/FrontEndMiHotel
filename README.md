@@ -7,6 +7,8 @@ RxJS para utilizar Observables, para facilitar la composición de código asínc
 
 npm i sweetalert2 #Funcionalidad para dar un aspecto profesional a los mensajes que lancemos a los usuarios.
 
+Se utilizo Bootstrap y scss para el diseño de la web.
+
 # FrontEndMiHotel
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
