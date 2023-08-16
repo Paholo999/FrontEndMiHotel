@@ -1,0 +1,116 @@
+
+<div class="modal fade" id="reservarModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Habitación</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-2 row">
+                <img src="{{fotoHabitacionReservado}}" class="" alt=""> 
+                <label class="col-sm-4 col-form-label">Codigo: {{idHabitacionReservado}} </label>
+                <label class="col-sm-4 col-form-label">Tipo: {{tipoHabitacionReservado}} </label>
+                <label class="col-sm-4 col-form-label">Descripcion: {{descripHabitacionReservado}}</label>
+                <label class="col-sm-4 col-form-label">Precio: Q. {{precioHabitacionReservado}}</label>
+            </div>
+            <div class="mb-2 row ">
+                <div class="col-sm-4">
+                    <label class="col-form-label">Fecha de reservación</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="col-12">
+                        <div class="dp-hidden position-absolute">
+                            <div class="input-group">
+                                <input
+                                    name="datepicker"
+                                    class="form-control"
+                                    ngbDatepicker
+                                    #datepicker="ngbDatepicker"
+                                    [autoClose]="'outside'"
+                                    (dateSelect)="onDateSelection($event)"
+                                    [displayMonths]="2"
+                                    [dayTemplate]="t"
+                                    outsideDays="hidden"
+                                    [startDate]="fromDate!"
+                                    tabindex="-1"
+                                />
+                                <ng-template #t let-date let-focused="focused">
+                                    <span
+                                        class="custom-day"
+                                        [class.focused]="focused"
+                                        [class.range]="isRange(date)"
+                                        [class.faded]="isHovered(date) || isInside(date)"
+                                        (mouseenter)="hoveredDate = date"
+                                        (mouseleave)="hoveredDate = null"
+                                    >
+                                        {{ date.day }}
+                                    </span>
+                                </ng-template>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <input
+                                #dpFromDate
+                                class="form-control"
+                                placeholder="yyyy-mm-dd"
+                                name="dpFromDate"
+                                [value]="formatter.format(fromDate)"
+                                (input)="fromDate = validateInput(fromDate, dpFromDate.value)"
+                            />
+                            <button class="btn btn-outline-secondary bi-calendar3" (click)="datepicker.toggle()" type="button"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="col-12">
+                        <div class="input-group">
+                            <input
+                                #dpToDate
+                                class="form-control"
+                                placeholder="yyyy-mm-dd"
+                                name="dpToDate"
+                                [value]="formatter.format(toDate)"
+                                (input)="toDate = validateInput(toDate, dpToDate.value)"
+                            />
+                            <button class="btn btn-outline-secondary bi-calendar3" (click)="datepicker.toggle()" type="button"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" (click)="realizarReservacion()">Realizar reservación</button>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+<div class="container ">          
+    <div class="text-center m-5">
+        <h2><i class="fas fa-users"></i>Habitaciones Disponibles</h2>
+    </div>
+    <div class="row ">
+        <div class="col-sm" *ngFor="let item of habitaciones">
+            <div class="card mb-3" style="width: 18rem;">
+                <img src="{{item.foto}}" class="card-img-top" alt="">
+                <div class="card-body text-center">
+                    <h3 class="card-title">{{item.tipo}}</h3>
+                    <p class="card-text">{{item.descripcion}}</p>
+                    <p class="card-text">Precio: Q. {{item.precio}}</p>           
+                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#reservarModal" 
+                    *ngIf="item.reservado else elseBlock" (click)="reservar(item)">Reservar</button>
+                    <ng-template #elseBlock>
+                        <h4>Reservado</h4>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>        
+</div>
+    
+
