@@ -1,5 +1,12 @@
 Consume servicios de WebApiMiHotel.
 
+ng add @ng-bootstrap/ng-bootstrap #Para la funcionalidad de calendario
+https://ng-bootstrap.github.io/#/getting-started
+
+RxJS para utilizar Observables, para facilitar la composición de código asíncrono o basado en devolución de llamadas
+
+npm i sweetalert2 #Funcionalidad para dar un aspecto profesional a los mensajes que lancemos a los usuarios.
+
 # FrontEndMiHotel
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
