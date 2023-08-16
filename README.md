@@ -1,3 +1,7 @@
+Funcionalidades que se puede mejorar: solicitar datos del usuario y mostrar informacion de las reservaciones.
+Crear un login con token JSON Web Token (JWT) con permisos según el usuario y realizar peticion en API.
+Tener un lado de administrador donde se pueda gestionar usuario, habitaciones y reservaciones.
+
 Consume servicios de WebApiMiHotel.
 
 ng add @ng-bootstrap/ng-bootstrap #Para la funcionalidad de calendario
