@@ -8,6 +8,11 @@ RxJS para utilizar Observables, para facilitar la composición de código asínc
 npm i sweetalert2 #Funcionalidad para dar un aspecto profesional a los mensajes que lancemos a los usuarios.
 
 Se utilizo Bootstrap y scss para el diseño de la web.
+Se definio Bootstrap en src/index.html
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+<link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 
 # FrontEndMiHotel
 
